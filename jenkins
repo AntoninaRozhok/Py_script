@@ -8,7 +8,7 @@ stages {
 
        steps {
 
-           git changelog: false, poll: false, url: 'https://github.com/AntoninaRozhok/Py_script'
+           git branch: 'main', url: 'https://github.com/AntoninaRozhok/Py_script/blob/main/robot'
 
        }
 
@@ -30,9 +30,9 @@ stages {
 
        steps {
         
-       echo 'Testing using pytest'
+       echo 'Testing using robot'
 
-           sh 'python robot'
+           sh 'python PycharmProjects/pythonProject/robot.robot'
 
        }
 
