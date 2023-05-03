@@ -1,43 +1,22 @@
 pipeline {
+    agent any
+    stages {
 
-agent any
-
-stages {
-
-   stage ('GIT Checkout'){
-
-       steps {
-
-           git branch: 'main', url: 'https://github.com/AntoninaRozhok/Py_script/blob/main/robot'
-
-       }
-
-   }
-
-  
-
-   stage('build') {
-
- steps {
-
-   sh 'pip install -r requirements.txt'
-
- }
-
-}
-
-   stage ('Test'){
-
-       steps {
-        
-       echo 'Testing using robot'
-
-           sh 'python PycharmProjects/pythonProject/robot.robot'
-
-       }
-
-   }
-
-}
-
-}
+      stage('Build') {
+        steps {
+          git branch: 'main', url: 'https://github.com/AntoninaRozhok/Py_script/blob/main/robot'
+        }
+      }
+      stage('Test') {
+        steps {
+          echo 'Testing using Robot Framework'
+          sh 'robot test.robot'
+        }
+      }
+           stage('Monitor') {
+     steps {
+       echo 'Well done!'
+     }
+   }
+    }    
+  }
