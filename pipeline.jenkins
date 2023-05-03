@@ -4,7 +4,7 @@ pipeline {
 
       stage('Build') {
         steps {
-          git branch: 'main', url: 'https://github.com/AntoninaRozhok/Py_script/blob/main/robot'
+          git branch: 'main', url: 'https://github.com/AntoninaRozhok/Py_script'
         }
       }
       stage('Test') {
